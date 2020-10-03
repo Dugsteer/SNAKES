@@ -19,35 +19,44 @@ function go(x){
             currentPlayer.classList = "";
             currentPlayer.classList.add('id24');
             dice = "inactive";
+            die.style.display = "none";
             setTimeout(()=> {currentPlayer === black ? board.innerHTML = "<h1>BLACK JOLLY WELL WINS</h1>" : board.innerHTML = "<h1>WHITE JOLLY WELL WINS</h1>";}, 1000);
             setTimeout(()=>{location.reload(); dice="active";}, 3000);
             break;
         case "id9":
             currentPlayer.classList = "";
             currentPlayer.classList = "id9";
+            move.length = 0;
+            move.push(3);
             dice = 'inactive';
-            setTimeout(function(){currentPlayer.classList = ""; currentPlayer.classList.add('id3'); move = [3]; dice = 'active';}, 1500);
+            setTimeout(function(){currentPlayer.classList = ""; currentPlayer.classList.add('id3');  dice = 'active';}, 1500);
             
             break;
         case "id7":
             currentPlayer.classList = "";
             currentPlayer.classList.add('id7');
+            move.length = 0;
+            move.push(15);
             dice = 'inactive';
-            setTimeout(function(){currentPlayer.classList = ""; currentPlayer.classList.add('id15'); move = [15]; dice = 'active'}, 1500);
+            setTimeout(function(){currentPlayer.classList = ""; currentPlayer.classList.add('id15');  dice = 'active'}, 1500);
            
             break;   
         case "id13":
             currentPlayer.classList = "";
             currentPlayer.classList.add('id13');
+            move.length = 0;
+            move.push(10);
             dice = 'inactive';
-            setTimeout(function(){currentPlayer.classList = ""; currentPlayer.classList.add('id10'); move = [10];dice = 'active'}, 1500);
+            setTimeout(function(){currentPlayer.classList = ""; currentPlayer.classList.add('id10');dice = 'active'}, 1500);
             
             break;   
         case "id14":
             currentPlayer.classList = "";
             currentPlayer.classList.add('id14');
+            move.length = 0;
+            move.push(21);
             dice = 'inactive';
-            setTimeout(function(){currentPlayer.classList = ""; currentPlayer.classList.add('id21'); move = [21];dice = 'active'}, 1500);
+            setTimeout(function(){currentPlayer.classList = ""; currentPlayer.classList.add('id21'); dice = 'active'}, 1500);
             
             break;   
         case "id23":
@@ -83,6 +92,8 @@ function rollDice(){
     move.push(advance);
     // calculate the sum of the array
    let nextmove = move.reduce((a,b) => a+b, 0);
+   move.length = 0;
+   move.push(nextmove);
 //    check for win
    nextmove >= 24 ? nextmove=24 : nextmove = nextmove;
     //concatenate variable with "id" to get name of class
